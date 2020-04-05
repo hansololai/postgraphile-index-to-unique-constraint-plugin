@@ -4,7 +4,7 @@ import { createPostGraphileSchema } from 'postgraphile';
 import { readdirSync, readFile as rawReadFile } from 'fs';
 import { resolve as resolvePath } from 'path';
 import { printSchema } from 'graphql/utilities';
-import { addFakeUniqueConstraintFromIndex } from '../../src'
+import { addFakeUniqueConstraintFromIndex } from '../../src';
 // import debug from 'debug';
 
 // const debug = debugger('graphile-build:schema');
