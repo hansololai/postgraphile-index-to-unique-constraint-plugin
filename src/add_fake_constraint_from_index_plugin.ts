@@ -33,23 +33,13 @@ const indexToUniqueConstraint = (ind: PgIndex) => {
     a => a.num === n,
   ));
   const uniqueConstraint: PgConstraint = {
-    id,
-    classId,
-    description,
-    tags,
-    class: theClass,
-    comment: '',
-    foreignClass: undefined,
-    foreignClassId: undefined,
-    foreignKeyAttributeNums: [],
-    foreignKeyAttributes: [],
-    keyAttributeNums: attributeNums,
+    id, classId, description, tags,
+    class: theClass, comment: '', foreignClass: undefined,
+    foreignClassId: undefined, foreignKeyAttributeNums: [],
+    foreignKeyAttributes: [], keyAttributeNums: attributeNums,
     keyAttributes: (attributes as PgAttribute[]),
-    kind: PgEntityKind.CONSTRAINT,
-    name: `${name}_constraint`,
-    type: 'u',
-    namespace: theClass.namespace,
-    isIndexed: true,
+    kind: PgEntityKind.CONSTRAINT, name: `${name}_constraint`, type: 'u',
+    namespace: theClass.namespace, isIndexed: true,
   };
   return uniqueConstraint;
 };
