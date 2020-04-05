@@ -1,0 +1,67 @@
+{
+  "name": "postgraphile-polymorphic-relation-plugin",
+  "version": "1.1.1",
+  "description": "Extention that add Polymorphic Assocations in PostGraphile",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "lint": "tslint --config tslint.json --project tsconfig.json",
+    "test": "scripts/test",
+    "build": "tsc --declaration",
+    "release-it": "yarn version --patch && git push --follow-tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hansololai/postgraphile-polymorphic-relation-plugin"
+  },
+  "author": "Han Lai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hansololai/postgraphile-polymorphic-relation-plugin/issues"
+  },
+  "dependencies": {
+    "graphql-tools": "^4.0.7"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.5",
+    "@types/jest": "^25.1.0",
+    "graphile-build": "4.6.0",
+    "graphile-build-pg": "4.6.0",
+    "jest": "^25.1.0",
+    "jest-junit": "^10.0.0",
+    "pg": "^7.18.1",
+    "postgraphile": "4.6.0",
+    "ts-jest": "^25.2.1",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.18.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.8.3",
+    "typescript-tslint-plugin": "^0.5.4"
+  },
+  "jest": {
+    "testRegex": "__tests__/.*\\.test\\.(js|ts)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.test.json"
+      }
+    }
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "engines": {
+    "node": ">=8.6"
+  }
+}
