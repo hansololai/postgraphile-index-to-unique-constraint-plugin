@@ -6,7 +6,7 @@ import { GraphileBuild } from './postgraphile_types';
  * @description "Set unique constraint using smart comments"
  * @param builder
  */
-export const setUnique: Plugin = (builder) => {
+export const uniqueConstraintFromSmartComment: Plugin = (builder) => {
   builder.hook('build', (build) => {
     const {
       pgIntrospectionResultsByKind: { class: classes, constraint },
