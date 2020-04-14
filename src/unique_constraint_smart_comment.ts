@@ -23,7 +23,7 @@ export const uniqueConstraintFromSmartComment: Plugin = (builder) => {
           const attriNums: number[] = [];
           const attrs: PgAttribute[] = [];
           attNames.split(',').forEach((n) => {
-            const ind = c.attributes.findIndex((a) => a.name === n);
+            const ind = c.attributes.findIndex(a => a.name === n);
             const attr = c.attributes[ind];
             if (!attr) {
               throw new Error(`Cannot find attribute ${n} for unique constraint ${uniqueTag}`);
