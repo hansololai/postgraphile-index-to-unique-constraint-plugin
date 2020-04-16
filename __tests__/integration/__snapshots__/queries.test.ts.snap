@@ -30,6 +30,10 @@ Object {
       "content": "unique tagged on parent1",
       "id": 1,
     },
+    "viewTagByUniqueTaggableIdAndUniqueTaggableType": Object {
+      "content": "unique tagged on parent1",
+      "id": 1,
+    },
   },
 }
 `;
