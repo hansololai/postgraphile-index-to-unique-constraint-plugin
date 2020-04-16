@@ -12,4 +12,8 @@ query text {
     id
     content
   }
+  viewTagByUniqueTaggableIdAndUniqueTaggableType(uniqueTaggableId: 1, uniqueTaggableType:"Parent"){
+    id
+    content
+  }
 }

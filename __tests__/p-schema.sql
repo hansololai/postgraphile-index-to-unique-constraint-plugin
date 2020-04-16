@@ -29,6 +29,14 @@ create table p.unique_taggs
 
 comment on column p.unique_taggs.unique_taggable_type is E'@isPolymorphic\n@polymorphicTo Parent\n@polymorphicTo Parent\n@polymorphicTo API::Forward';
 
+-- create a view with a smart comment and unique constraint
+
+create view p.view_tags as (
+  select * from p.unique_taggs
+);
+
+comment on view p.view_tags is E'@unique (unique_taggable_id,unique_taggable_type)';
+
 alter table p.unique_taggs add constraint unique_tag_type_is_unique UNIQUE (unique_taggable_id,unique_taggable_type);
 
 create table p.parent

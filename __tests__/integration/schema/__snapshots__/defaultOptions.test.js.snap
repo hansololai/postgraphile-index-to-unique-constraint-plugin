@@ -2645,6 +2645,35 @@ type Query implements Node {
     orderBy: [UniqueTaggsOrderBy!] = [PRIMARY_KEY_ASC]
   ): UniqueTaggsConnection
 
+  \\"\\"\\"Reads and enables pagination through a set of \`ViewTag\`.\\"\\"\\"
+  allViewTags(
+    \\"\\"\\"Read all values in the set after (below) this cursor.\\"\\"\\"
+    after: Cursor
+
+    \\"\\"\\"Read all values in the set before (above) this cursor.\\"\\"\\"
+    before: Cursor
+
+    \\"\\"\\"
+    A condition to be used in determining which values should be returned by the collection.
+    \\"\\"\\"
+    condition: ViewTagCondition
+
+    \\"\\"\\"Only read the first \`n\` values of the set.\\"\\"\\"
+    first: Int
+
+    \\"\\"\\"Only read the last \`n\` values of the set.\\"\\"\\"
+    last: Int
+
+    \\"\\"\\"
+    Skip the first \`n\` values from our \`after\` cursor, an alternative to cursor
+    based pagination. May not be used with \`last\`.
+    \\"\\"\\"
+    offset: Int
+
+    \\"\\"\\"The method to use when ordering \`ViewTag\`.\\"\\"\\"
+    orderBy: [ViewTagsOrderBy!] = [NATURAL]
+  ): ViewTagsConnection
+
   \\"\\"\\"Reads a single \`ArrayType\` using its globally unique \`ID\`.\\"\\"\\"
   arrayType(
     \\"\\"\\"The globally unique \`ID\` to be used in selecting a single \`ArrayType\`.\\"\\"\\"
@@ -3505,5 +3534,68 @@ enum UniqueTaggsOrderBy {
 A universally unique identifier as defined by [RFC 4122](https://tools.ietf.org/html/rfc4122).
 \\"\\"\\"
 scalar UUID
+
+type ViewTag {
+  content: String
+  id: Int
+  uniqueTaggableId: Int
+  uniqueTaggableType: String
+}
+
+\\"\\"\\"
+A condition to be used against \`ViewTag\` object types. All fields are tested for equality and combined with a logical ‘and.’
+\\"\\"\\"
+input ViewTagCondition {
+  \\"\\"\\"Checks for equality with the object’s \`content\` field.\\"\\"\\"
+  content: String
+
+  \\"\\"\\"Checks for equality with the object’s \`id\` field.\\"\\"\\"
+  id: Int
+
+  \\"\\"\\"Checks for equality with the object’s \`uniqueTaggableId\` field.\\"\\"\\"
+  uniqueTaggableId: Int
+
+  \\"\\"\\"Checks for equality with the object’s \`uniqueTaggableType\` field.\\"\\"\\"
+  uniqueTaggableType: String
+}
+
+\\"\\"\\"A connection to a list of \`ViewTag\` values.\\"\\"\\"
+type ViewTagsConnection {
+  \\"\\"\\"
+  A list of edges which contains the \`ViewTag\` and cursor to aid in pagination.
+  \\"\\"\\"
+  edges: [ViewTagsEdge!]!
+
+  \\"\\"\\"A list of \`ViewTag\` objects.\\"\\"\\"
+  nodes: [ViewTag]!
+
+  \\"\\"\\"Information to aid in pagination.\\"\\"\\"
+  pageInfo: PageInfo!
+
+  \\"\\"\\"The count of *all* \`ViewTag\` you could get from the connection.\\"\\"\\"
+  totalCount: Int!
+}
+
+\\"\\"\\"A \`ViewTag\` edge in the connection.\\"\\"\\"
+type ViewTagsEdge {
+  \\"\\"\\"A cursor for use in pagination.\\"\\"\\"
+  cursor: Cursor
+
+  \\"\\"\\"The \`ViewTag\` at the end of the edge.\\"\\"\\"
+  node: ViewTag
+}
+
+\\"\\"\\"Methods to use when ordering \`ViewTag\`.\\"\\"\\"
+enum ViewTagsOrderBy {
+  CONTENT_ASC
+  CONTENT_DESC
+  ID_ASC
+  ID_DESC
+  NATURAL
+  UNIQUE_TAGGABLE_ID_ASC
+  UNIQUE_TAGGABLE_ID_DESC
+  UNIQUE_TAGGABLE_TYPE_ASC
+  UNIQUE_TAGGABLE_TYPE_DESC
+}
 "
 `;
