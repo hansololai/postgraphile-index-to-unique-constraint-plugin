@@ -1,6 +1,6 @@
 {
   "name": "postgraphile-index-to-unique-constraint-plugin",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "PostGraphile plugin that create a root field from unique index",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
