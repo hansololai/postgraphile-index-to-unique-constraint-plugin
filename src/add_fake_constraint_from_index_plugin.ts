@@ -66,7 +66,10 @@ export const addFakeUniqueConstraintFromIndex = (builder: SchemaBuilder, options
       // If there already exist one, then we don't have to do it
       // if each attribute num exist in the index attribute num, then we skip it
       const exist = theClass.constraints.find(
-        c => c.keyAttributeNums.every(num => attributeNums.includes(num)),
+        (c) => {
+          return c.keyAttributeNums.every(num => attributeNums.includes(num))
+          && ['u', 'p'].includes(c.type);
+        },
       );
       if (!exist) {
         constraint.push(uniqueConstraint);
